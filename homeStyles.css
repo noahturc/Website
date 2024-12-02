@@ -1,0 +1,294 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #9aadc7;
+
+  }
+
+
+  
+  .section {
+    padding: 50px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .underline {
+    width: 0;
+    height: 2px;
+    background: black;
+    margin: 10px auto;
+    transition: width 0.6s ease;
+    margin-bottom: 50px;
+
+  }
+  
+  .section-title {
+    margin-bottom: 20px;
+    background-color: #9aadc7;
+
+  }
+  
+
+
+  /* About Section */
+
+  #about-title {
+    margin-top: 40px; /* Moves it down */
+    font-family: 'Rockwell', sans-serif; /* Change font */
+
+  }
+  
+  #about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #9aadc7;
+
+  }
+  
+  .about-container {
+    display: flex;
+    justify-content: space-between; /* Keeps content spaced evenly */
+    width: 100%; /* Ensures it spans the full width */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+  }
+
+  
+  .about-text {
+    flex: none;
+    width: 50%; /* Explicitly sets the text box to occupy 50% of the container */
+    margin-right: 30px; /* Adds spacing between text and images */
+/*    flex: 0 0 50%; /* Fixes the width of the text box to 50% of the section */
+    margin-bottom: 90px; /* Keeps some spacing below the paragraph */
+
+  }
+
+
+  .text-box {
+    background-color: #adcaf1;
+    border-radius: 15px; /* Rounded edges */
+    padding: 20px; /* Adds spacing inside the box */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    width: 820px; /* Limits the width of the box to 50% of the screen */
+  }
+
+    .text-box p {
+    font-size: 20px; /* Adjust size */
+    font-family: 'Arial', sans-serif; /* Change font */
+    margin-top: 0; /* Removes default margin above the paragraph */
+    margin-bottom: 90px; /* Keeps some spacing below the paragraph */
+  }
+
+  .text-box p:first-of-type {
+    margin-top: 10px; /* Slightly reduces space above the first paragraph */
+  }
+  
+  .text-box p:last-of-type {
+    margin-bottom: 10px; /* Reduces space at the bottom of the last paragraph */
+  }
+
+  .paragraph-title {
+    font-size: 23px; /* Adjust size */
+    text-align: center; /* Centers the title */
+    font-weight: bold; /* Makes the title bold */
+    margin: 0; /* Removes default margins */
+    padding-top: 20px; /* Adds space above the title */
+    padding-bottom: 0px; /* Adds space below the title */
+  }
+  
+  .about-images {
+    flex: 1; /* Allows the images to take proportional space */
+    display: flex;
+    flex-direction: row; /* Places images side by side */
+    flex-wrap: wrap; /* Allows images to wrap to the next row if needed */
+    justify-content: center; /* Aligns images in da middle */
+    gap: 20px; /* Adds space between images */
+    max-width: 100%; /* Ensures the images container doesn't exceed full width */
+    overflow: hidden; /* Ensures content doesn't overflow its container */
+    box-sizing: border-box; /* Prevents padding from increasing the width */
+    top: 0; /* Aligns the container to the top */
+    margin-bottom: 90px; /* Keeps some spacing below the paragraph */
+    overflow: visible; /* Ensures shadows are not clipped */
+}
+
+.about-images img {
+    width: 300px; /* Sets a consistent width for images */
+    max-width: 300px; /* Limits the maximum size of each image */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes inline spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    margin-right: 0; /* Resets unnecessary margins */
+    border-radius: 15px; /* Rounded edges */
+}
+
+
+
+
+
+
+  
+  /* Projects Section */
+  .projects-section {
+    background-color: #8d7676;
+    text-align: center;
+  }
+  
+  #projects-title.section-title{
+    background-color: #8d7676;
+    font-family: 'Rockwell', sans-serif; /* Change font */
+  }
+
+  .projects-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between boxes */
+  }
+  
+  .project-box {
+    width: 45%; /* Reduce width */
+    background-color: #b19696;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    text-align: center;
+    position: relative; /* Position for alignment adjustments */
+    opacity: 0;
+    transform: translateX(-50px); /* Start slightly off-screen */
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+  
+  /* Position boxes */
+  .project-box.left {
+    align-self: flex-start; /* Align to the left */
+  }
+  
+  .project-box.right {
+    align-self: flex-end; /* Align to the right */
+    transform: translateX(50px); /* Right-aligned boxes slide in from the right */
+
+  }
+
+    .project-box.slide-in {  /* When in view, slide in */
+    opacity: 1;
+    transform: translateX(0); /* Reset position */
+    }
+
+  /* Project Box Text */
+  .project-box p {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+  }
+  
+  /* Button Styling */
+  .project-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .project-button:hover {
+    background-color: #0056b3;
+  }
+
+
+
+  /* Contact Section */
+  .contact-section {
+    background-color: #9aadc7;
+    text-align: center;
+  }
+  
+  #contact-title.section-title{
+    background-color: #9aadc7;
+    font-family: 'Rockwell', sans-serif; /* Change font */
+
+  }
+
+
+
+  .contact-content {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-items {
+    display: flex;
+    gap: 140px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-image {
+    width: auto;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .contact-bold {
+    margin-bottom: 0px;
+  }
+
+  .contact-text {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+
+
+
+
+
+
+
+
+
+
+  /* On Scroll Underline Animation */
+  .active {
+    width: 100px; /* Adjust based on your preference */
+  }
+
+  
+
+/* General Chatbot Styles */
+df-messenger {
+    --df-messenger-button-titlebar-color: #ff4800; /* Title bar color */
+    --df-messenger-button-titlebar-text-color: #FFFFFF; /* Title bar text color */
+    --df-messenger-chat-background-color: #F5F5F5; /* Chat window background */
+    --df-messenger-font-color: #000000; /* Chat text color */
+    --df-messenger-input-box-color: #FFFFFF; /* Input box background */
+    --df-messenger-input-font-color: #000000; /* Input text color */
+    --df-messenger-send-icon-color: #ff4800; /* Send button icon */
+    --df-messenger-user-message-color: #f700ff; /* User message bubble */
+    --df-messenger-bot-message-color: #FFFFFF; /* Bot message bubble */
+    --df-messenger-bot-message-font-color: #00e40b; /* Bot message text */
+
+  }
+  
+  /* Hover and Active States (Optional Customization) */
+  df-messenger::part(send-button):hover {
+    background-color: #45A049; /* Hover effect on send button */
+  }
+  
+  df-messenger::part(send-button):active {
+    background-color: #3E8E41; /* Active state for send button */
+  }

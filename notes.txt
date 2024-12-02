@@ -1,0 +1,39 @@
+to start:
+cd to lamboVanCorvettePickupToyota
+in terminal run python app.py
+
+to get DialogFlow fulfillment: ngrok http <whatever port site is running on>
+copy that link and put it in DialogFlow fulfillment. Might need to add /webhook to the link
+
+
+
+
+
+
+
+
+
+.about-images {
+    flex: 1; /* Allows the images to take proportional space */
+    display: flex;
+    flex-direction: column; /* Stacks images vertically */
+    align-items: flex-end; /* Aligns the images to the right */
+    gap: 20px; /* Adds space between images */
+    max-width: 500%; /* Ensures the images container doesn't exceed half the screen */
+    overflow: hidden; /* Ensures content doesn't overflow its container */
+    box-sizing: border-box; /* Prevents padding from increasing the width */
+    top: 0; /* Aligns the container to the top */
+    margin-bottom: 90px; /* Keeps some spacing below the paragraph */
+    overflow: visible; /* Ensures shadows are not clipped */
+  }
+  
+  .about-images img {
+    width: 300; /* Ensures images are responsive */
+    max-width: 300px; /* Limits the maximum size of each image */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes inline spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    margin-right: 80px; /* Keeps the container 30px from the right side */
+    border-radius: 15px; /* Rounded edges */
+
+  }
