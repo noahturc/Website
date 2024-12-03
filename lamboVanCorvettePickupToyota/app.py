@@ -51,9 +51,9 @@ def webhook():
             })
 
 @app.route('/')
-def home():
-    # Serve the home.html file
-    file_path = os.path.join(BASE_DIR, 'home.html')
+def index():
+    # Serve the index.html file
+    file_path = os.path.join(BASE_DIR, 'index.html')
     return send_file(file_path)
 
 @app.route('/<path:filename>')
@@ -66,10 +66,10 @@ def serve_static_files(filename):
         return "File not found", 404
 
 # Route to serve the HTML page
-@app.route('/index')
-def index():
-    print('hi index fn')
-    return send_from_directory('', 'index.html')  # Ensure 'index.html' is in the same directory as your Python script
+@app.route('/index2')
+def index2():
+    print('hi index2 fn')
+    return send_from_directory('', 'index2.html')  # Ensure 'index2.html' is in the same directory as your Python script
 
 # Route to handle the image upload and processing
 @app.route('/run-script', methods=['POST'])
