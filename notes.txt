@@ -10,30 +10,77 @@ copy that link and put it in DialogFlow fulfillment. Might need to add /webhook 
 
 
 
+chat gpt prompt:
 
-
-
-.about-images {
+The following is referring to css and HTML elements in a static website. I want the "about-images" to be the same distance from the right wall as it is from the text-box on the left at all times. If the user zooms in, the text-box tag gets bigger. I want the about-images div to also get bigger but never bigger such that it overlaps the text-box. It is okay if the text-box div overlaps about-images div while the user zooms in. This is the current CSS for the about-images tag: ".about-images { 
     flex: 1; /* Allows the images to take proportional space */
     display: flex;
-    flex-direction: column; /* Stacks images vertically */
-    align-items: flex-end; /* Aligns the images to the right */
+    flex-direction: row; /* Places images side by side */
+    flex-wrap: wrap; /* Allows images to wrap to the next row if needed */
+    justify-content: center; /* Aligns images in da middle */
     gap: 20px; /* Adds space between images */
-    max-width: 500%; /* Ensures the images container doesn't exceed half the screen */
+    max-width: 100%; /* Ensures the images container doesn't exceed full width */
     overflow: hidden; /* Ensures content doesn't overflow its container */
     box-sizing: border-box; /* Prevents padding from increasing the width */
     top: 0; /* Aligns the container to the top */
     margin-bottom: 90px; /* Keeps some spacing below the paragraph */
     overflow: visible; /* Ensures shadows are not clipped */
-  }
-  
-  .about-images img {
-    width: 300; /* Ensures images are responsive */
-    max-width: 300px; /* Limits the maximum size of each image */
-    height: auto; /* Maintains aspect ratio */
-    display: block; /* Removes inline spacing */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
-    margin-right: 80px; /* Keeps the container 30px from the right side */
+}". This is the current CSS for the text-box tag: "  .text-box {
+    background-color: #adcaf1;
     border-radius: 15px; /* Rounded edges */
+    padding: 20px; /* Adds spacing inside the box */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    width: 820px; /* Limits the width of the box to 50% of the screen */
+  }". Tell me the necessary changes to the CSS to achieve this.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Newest and best css:
+
+
+.text-box {
+    background-color: #adcaf1;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    
+    /* Never let the text box exceed 75% of the container width */
+    flex: 0 1 75%;
+    max-width: 100%;  
+    box-sizing: border-box;
+    margin: 0;               /* No extra left/right margins */
+  }
+
+
+
+ .about-images {
+    /* Switch to a two-column layout that flows each image independently */
+    column-count: 2;
+    column-gap: 20px;
+    
+    /* Keep the original constraints to sit beside the text box */
+    flex: 0 1 25%;
+    max-width: 25%;
+    box-sizing: border-box;
+    margin-bottom: 90px;
   }

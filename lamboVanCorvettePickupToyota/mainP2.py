@@ -3,7 +3,7 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from PIL import Image
 import torchvision.transforms.functional as TF
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from torch import nn
 import torch
 #from sklearn.model_selection import KFold as kfold
