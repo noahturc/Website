@@ -139,12 +139,13 @@ p { text-align: center; }
     top: -20px; /* Moves the title up by 10 pixels */
 }
 
+/*
 body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
-
+*/
 .dashboardReal {
     display: block;
     transform: translate(14%, 0%)
