@@ -3,8 +3,8 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #9aadc7;
-
+    /* background-color: #9aadc7;   what I been usin */
+    background-color: #2C3E50 ;
   }
 
 
@@ -31,7 +31,8 @@ body {
   
   .section-title {
     margin-bottom: 20px;
-    background-color: #9aadc7;
+    /* background-color: #9aadc7;     what i been usin*/
+    background-color: #2C3E50 ;
 
   }
   
@@ -49,7 +50,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #9aadc7;
+    /* background-color: #9aadc7;   what i been usin */
+    background-color: #2C3E50 ;
 
   }
 
@@ -72,12 +74,15 @@ body {
     margin-right: 30px; /* Adds spacing between text and images */
 /*    flex: 0 0 50%; /* Fixes the width of the text box to 50% of the section */
     margin-bottom: 90px; /* Keeps some spacing below the paragraph */
+    text-align: center;
+
 
   }
 
 
   .text-box {
-  background-color: #adcaf1;
+  /* background-color: #adcaf1;     what i been used */
+  background-color: #536c85 ;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
