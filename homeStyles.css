@@ -151,7 +151,64 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Enhance shadow for a popping effect */
 }
 
+
+
   
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block; /* or block, depending on your layout needs */
+}
+
+
+/* Tooltip text */
+/*.tooltip .tooltiptext {
+/*  position: absolute; /* Allows it to move outside the parent */
+/*  top: 100%; /* Positions it below the tooltip trigger */
+/*  left: 50%; /* Centers the tooltip horizontally */
+/*  transform: translateX(-50%);
+/*  z-index: 10; /* Ensures it appears above other content */
+/*  background-color: black; /* Example styling */
+/*  color: white;
+/*  padding: 5px;
+/*  border-radius: 5px;
+/*  visibility: hidden; /* Initially hidden */
+/*  opacity: 0; /* Transparent by default */
+/*  transition: opacity 0.3s; /* Fade effect */
+/*}*/
+
+
+.tooltip .tooltiptext {
+  position: fixed; /* Ensures the tooltip follows the cursor */
+  top: var(--cursor-y); /* Dynamically positions the tooltip vertically */
+  left: var(--cursor-x); /* Dynamically positions the tooltip horizontally */
+  transform: translate(-50%, -100%); /* Adjusts position to center above the cursor */
+  z-index: 10; /* Ensures the tooltip is above other elements */
+  background-color: black; /* Optional: Tooltip background color */
+  color: white; /* Optional: Tooltip text color */
+  padding: 5px; /* Optional: Padding for the tooltip */
+  border-radius: 5px; /* Optional: Rounded corners */
+  visibility: hidden; /* Optional: Initially hidden */
+  opacity: 0; /* Optional: Initially transparent */
+  transition: opacity 0.3s; /* Optional: Smooth fade effect */
+}
+
+
+
+/* Show the tooltip when hovering over the container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
 
 @media (max-width: 860px) { /* When space is too tight (calculated based on text-box + gaps) */
   .about-images {
@@ -233,12 +290,12 @@ body {
 
   /* Contact Section */
   .contact-section {
-    background-color: #9aadc7;
+    background-color: #2C3E50 ;
     text-align: center;
   }
   
   #contact-title.section-title{
-    background-color: #9aadc7;
+    background-color: #2C3E50 ;
     font-family: 'Rockwell', sans-serif; /* Change font */
 
   }
@@ -273,12 +330,14 @@ body {
 
   .contact-bold {
     margin-bottom: 0px;
+    color: #ffffff;
+
   }
 
   .contact-text {
     font-weight: bold;
     font-size: 14px;
-    color: #333;
+    color: #ffffff;
   }
 
 
