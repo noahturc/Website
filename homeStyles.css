@@ -356,21 +356,26 @@ body {
 
   
 
-/* General Chatbot Styles */
-df-messenger {
-    --df-messenger-button-titlebar-color: #ff4800; /* Title bar color */
-    --df-messenger-button-titlebar-text-color: #FFFFFF; /* Title bar text color */
-    --df-messenger-chat-background-color: #F5F5F5; /* Chat window background */
-    --df-messenger-font-color: #000000; /* Chat text color */
-    --df-messenger-input-box-color: #FFFFFF; /* Input box background */
-    --df-messenger-input-font-color: #000000; /* Input text color */
-    --df-messenger-send-icon-color: #ff4800; /* Send button icon */
-    --df-messenger-user-message-color: #f700ff; /* User message bubble */
-    --df-messenger-bot-message-color: #FFFFFF; /* Bot message bubble */
-    --df-messenger-bot-message-font-color: #00e40b; /* Bot message text */
 
-  }
-  
+
+  df-messenger {
+    --df-messenger-button-titlebar-color: #536c85; /* Title bar color (dark slate) */
+    --df-messenger-button-titlebar-text-color: #FFFFFF; /* Title bar text color (white) */
+    --df-messenger-chat-background-color: #F9F9F9; /* Chat window background (light gray) */
+    --df-messenger-font-color: #333333; /* Chat text color (dark gray) */
+    --df-messenger-input-box-color: #FFFFFF; /* Input box background (white) */
+    --df-messenger-input-font-color: #333333; /* Input text color (dark gray) */
+    --df-messenger-send-icon-color: #3498DB; /* Send button icon (blue) */
+    --df-messenger-user-message-color: #0089fa; /* User message bubble (light green) */
+    --df-messenger-bot-message-color: #FFFFFF; /* Bot message bubble (white) */
+    --df-messenger-bot-message-font-color: #2C3E50; /* Bot message text (dark slate) */
+}
+
+
+
+
+
+
   /* Hover and Active States (Optional Customization) */
   df-messenger::part(send-button):hover {
     background-color: #45A049; /* Hover effect on send button */
