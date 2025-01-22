@@ -3,6 +3,17 @@
 <head>
     <title>Car Detector</title>
     <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #2C3E50 ;
+            overflow: hidden; /* Prevent scrolling (remove if you want scrolling on small screens) */
+        }
+
+        /* "Back" button */
         .back-button {
             position: absolute;
             top: 20px;
@@ -11,92 +22,167 @@
             font-size: 20px;
             color: #007BFF;
         }
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+
+        /* Container for the entire page */
+        #container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
         }
-        #image-box {
-            margin: 20px auto;
-            width: 300px;
-            height: 300px;
+
+        /* Title at the top */
+        h1 {
+            margin-top: 20px;
+        }
+
+
+        #image-container {
+            /* Place it below the heading, centered horizontally */
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            /* Big responsive area for the image */
+            width: 80vw;
+            max-width: 1000px;
+            height: 60vh;
+
             border: 2px dashed #ccc;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
+
+            /* slide animation */
+            transition: transform 1s ease;
         }
-        #result {
-            margin-top: 20px;
-        }
-        #run-button {
-            display: none;
-            margin-top: 20px;
-        }
+
+
         #upload-button {
-            margin-top: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
+
+        /* "Run Python Script" button at the bottom-center of the image box */
+        #run-button {
+            display: none; /* Hidden until image is selected */
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Class that slides the #image-container left */
+        #image-container.slide-left {
+            /* Adjust this to how far you want it to slide so there's room for the text box */
+            transform: translate(-50%, 0) translateX(-15vw);
+        }
+
+         #result-box {
+            position: fixed;
+            /* Align with the image container’s top (which is top: 70px). */
+            top: 130px;
+            right: 70px;
+
+            /* Styling the box */
+            width: 25vw;
+            max-width: 400px;
+            background-color: #536c85 ;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+            text-align: center;
+
+            /* Hidden by default; delayed fade-in occurs when .fade-in is added */
+            opacity: 0;
+            transition: opacity 1s ease 0.5s;
+        }
+
+#result-box.fade-in {
+    opacity: 1;
+}
+
     </style>
 </head>
 <body>
+    <div id="container">
+        <a href="../index.html#projects" class="back-button">Back</a>
+        <h1>Upload one of the following: Lamborghini, Corvette, Pickup Truck, Toyota RAV 4, or Honda Odyssey.</h1>
 
-    <a href="../index.html#projects" class="back-button">Back</a>
-    <h1>Upload one the following: Lamborghini, Corvette, Pickup Truck, Toyota RAV 4, or Honda Odyssey.</h1>
-    <button id="upload-button">Upload Image</button>
-    <input type="file" id="file-input" accept="image/*" style="display: none;" />
-    <div id="image-box"></div>
+        <!-- The main container with the image box and the "Run" button -->
+        <div id="image-container">
+            <!-- "Upload Image" button (click opens file input) -->
+            <button id="upload-button">Upload Image</button>
 
-    <button id="run-button">Run Python Script</button>
+            <!-- The hidden file input -->
+            <input type="file" id="file-input" accept="image/*" style="display: none;" />
 
-    <div id="result"></div>
+            <!-- "Run Python Script" button (shown after file is selected) -->
+            <button id="run-button">Run Python Script</button>
+        </div>
+
+        <!-- The text box for result data (fades in after the image slides) -->
+        <div id="result-box"></div>
+    </div>
 
     <script>
         // Get DOM elements
-        const uploadButton = document.getElementById('upload-button');
         const fileInput = document.getElementById('file-input');
-        const imageBox = document.getElementById('image-box');
+        const uploadButton = document.getElementById('upload-button');
+        const imageContainer = document.getElementById('image-container');
         const runButton = document.getElementById('run-button');
-        const resultDiv = document.getElementById('result');
-        let selectedFile;
+        const resultBox = document.getElementById('result-box');
 
-        // Open file explorer when upload button is clicked
+        let selectedFile = null;
+
+        // When "Upload Image" is clicked, open file chooser
         uploadButton.addEventListener('click', () => {
             fileInput.click();
         });
 
-        // Display the selected image
+        // Handle file input changes
         fileInput.addEventListener('change', (event) => {
             selectedFile = event.target.files[0];
             if (selectedFile) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    imageBox.style.backgroundImage = `url(${e.target.result})`;
+                    // Put the image as background in the container
+                    imageContainer.style.backgroundImage = `url(${e.target.result})`;
                 };
                 reader.readAsDataURL(selectedFile);
+
+                // Show the "Run Python Script" button now that we have a file
                 runButton.style.display = 'inline-block';
             }
         });
 
-        // Send image to server when run button is clicked
+        // On "Run Python Script" click, send the image to the server
         runButton.addEventListener('click', () => {
             const formData = new FormData();
             formData.append('image', selectedFile);
-///run-script
-//http://127.0.0.1:5000/
+
             fetch('/run-script', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.text())
             .then(data => {
-                resultDiv.innerText = data;
+                // Put data in the result box
+                resultBox.innerText = data;
+
+                // Slide the image (and its "Run" button) to the left
+                imageContainer.classList.add('slide-left');
+
+                // Fade-in the result box with delay
+                resultBox.classList.add('fade-in');
             })
             .catch(error => {
                 console.error('Error:', error);
-                resultDiv.innerText = 'An error occurred.';
+                resultBox.innerText = 'An error occurred.';
             });
         });
-
     </script>
-
 </body>
 </html>

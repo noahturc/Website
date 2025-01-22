@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Add scroll listener for "Contact" underline
-    const contactUnderline = document.getElementById("contact-underline");
+/*    const contactUnderline = document.getElementById("contact-underline");
     window.addEventListener("scroll", () => {
         const contactSection = document.getElementById("contact");
         const sectionTop = contactSection.getBoundingClientRect().top;
@@ -24,6 +24,33 @@ document.addEventListener("DOMContentLoaded", () => {
         contactUnderline.classList.add("active");
         }
     });
+*/
+
+
+const contactUnderline = document.getElementById("contact-underline");
+
+window.addEventListener("scroll", () => {
+    const contactSection = document.getElementById("contact");
+    const sectionTop = contactSection.getBoundingClientRect().top;
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Add underline if section is in view
+    if (sectionTop < window.innerHeight / 1.5) {
+        contactUnderline.classList.add("active");
+    }
+
+    // Add underline if user reaches the bottom of the page
+    if (scrollPosition >= documentHeight) {
+        contactUnderline.classList.add("active");
+    }
+});
+
+
+
+
+
+
 
   });
   

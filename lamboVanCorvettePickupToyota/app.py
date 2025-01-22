@@ -83,7 +83,7 @@ def run_script():
     result = 'Nothing'
 
     if prediction == 'corvetteStingray':
-        result = '''Corvette Stingray
+        result = '''Prediction: Corvette Stingray
         
 Average Price:
 Starting at around $65,000 to $85,000 depending on options and packages.
@@ -102,7 +102,7 @@ Cargo Space:
 
 
     if prediction == 'fordPickupTruck':
-        result = '''Ford Pickup Truck
+        result = '''Prediction: Ford Pickup Truck
 
 Average Price:
 Starting at around $35,000 to $85,000 depending on trim, engine, and options.
@@ -122,7 +122,7 @@ Bed lengths: 5.5 ft, 6.5 ft, or 8 ft depending on the model and cab configuratio
 
 
     if prediction == 'hondaOdyssey':
-        result = '''Honda Odyssey
+        result = '''Prediction: Honda Odyssey
 
 Average Price:
 Starting at around $37,000 to $50,000 depending on trim and options.
@@ -141,7 +141,7 @@ Up to 158 cubic feet with the second and third rows folded.'''
 
 
     if prediction == 'lamborghini':
-        result = '''Lamborghini
+        result = '''Prediction: Lamborghini
         
 Average Price:
 Starting at around $200,000 to over $500,000 depending on the model and customization.
@@ -161,7 +161,7 @@ About 3.5 cubic feet (limited due to supercar design).'''
 
 
     if prediction == 'toyotaRAV4':
-        result = '''Toyota RAV 4
+        result = '''Prediction: Toyota RAV 4
 
 Average Price:
 Starting at around $28,000 to $40,000 depending on the trim level and options.
