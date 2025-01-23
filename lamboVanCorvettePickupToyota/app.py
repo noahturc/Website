@@ -2,6 +2,7 @@ print('hi app')
 from flask import Flask, request, send_from_directory, send_file, jsonify
 from makePredictions import makePrediction
 import os
+print('back in app')
 
 app = Flask(__name__)
 

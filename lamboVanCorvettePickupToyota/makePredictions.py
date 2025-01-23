@@ -1,7 +1,7 @@
 print('hi makePredictions')
 import torch
 from mainP2 import carModelDetectorLinearModel, classNames  # Import the correct model class
-
+print('Back in makePredictions')
 
 
 # Instantiate the same model used when saving
@@ -23,3 +23,5 @@ def makePrediction(image):
 #plt.imshow(image_data)
 #plt.title("Original Image")
 #plt.show()
+
+print('finished makePredictions')
