@@ -31,7 +31,7 @@ for root, dirs, files in os.walk(folder_path):
             new_file_path = file_path.replace('.jfif', '.jpg')
             img.save(new_file_path, 'JPEG')  # Save as JPEG
 
-import deleteDuplicatePhotos
+#import deleteDuplicatePhotos
 breakpoint = 0
 
 
