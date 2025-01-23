@@ -1,26 +1,27 @@
 print('hi main P2')
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
+print('line 4')
 from PIL import Image
 import torchvision.transforms.functional as TF
 #import matplotlib.pyplot as plt
 from torch import nn
 import torch
+print('import torch ran')
 #from sklearn.model_selection import KFold as kfold
 from sklearn.model_selection import KFold
 from torch.utils.data import SubsetRandomSampler, DataLoader
-import torch
 import torch.nn.functional as F
 #from helper_functions import accuracy_fn
-
-
 import os
+print('all imports ran')
 
 try:
     car_photos_path = os.path.join(os.path.dirname(__file__), "carPhotos")
     folder_path = car_photos_path  # Path to the folder with car models (classes)
 except:
     folder_path = r'carPhotos'
+    
 # Walk through the folder and all subfolders
 for root, dirs, files in os.walk(folder_path):
     for file in files:
@@ -116,7 +117,7 @@ class carModelDetectorLinearModel(nn.Module):
         return labelPrediction, confidenceList
 
 
-
+print('end of mainP2')
 
 if __name__ == '__main__':
 
