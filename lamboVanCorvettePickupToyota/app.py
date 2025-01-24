@@ -2,7 +2,6 @@ print('hi app')
 from flask import Flask, request, send_from_directory, send_file, jsonify
 import os
 from makePredictions import makePrediction
-print('back in app')
 
 app = Flask(__name__)
 
@@ -113,7 +112,7 @@ Cargo Space:
 12.6 cubic feet of cargo space (front and rear trunks combined).'''
 
 
-    if prediction == 'fordPickupTruck':
+    elif prediction == 'fordPickupTruck':
         result = '''Prediction: Ford Pickup Truck
 
 Average Price:
@@ -133,7 +132,7 @@ Cargo Space:
 Bed lengths: 5.5 ft, 6.5 ft, or 8 ft depending on the model and cab configuration.'''
 
 
-    if prediction == 'hondaOdyssey':
+    elif prediction == 'hondaOdyssey':
         result = '''Prediction: Honda Odyssey
 
 Average Price:
@@ -152,7 +151,7 @@ Cargo Space:
 Up to 158 cubic feet with the second and third rows folded.'''
 
 
-    if prediction == 'lamborghini':
+    elif prediction == 'lamborghini':
         result = '''Prediction: Lamborghini
         
 Average Price:
@@ -172,7 +171,7 @@ Cargo Space:
 About 3.5 cubic feet (limited due to supercar design).'''
 
 
-    if prediction == 'toyotaRAV4':
+    elif prediction == 'toyotaRAV4':
         result = '''Prediction: Toyota RAV 4
 
 Average Price:
@@ -190,11 +189,15 @@ Seating Capacity:
 Cargo Space:
 Up to 69.8 cubic feet with the rear seats folded.'''
 
+    else:
+        result = 'error line 192'
+        return result
 
     print(f'hi run script fn\nConfidence List is: {confidenceList}')
-    x = f'{result}\n\n\nConfidence List\n{confidenceList}'
+    x = f'{result}\n\n\nConfidence:\n{confidenceList[0]}'
     return x
 
+print('end of app')
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
