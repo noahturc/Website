@@ -30,16 +30,35 @@
             height: 100vh;
         }
 
-        /* Title at the top */
-        h1 {
-            margin-top: 20px;
-        }
+        .upload-instructions {
+    /* Positioning */
+    position: fixed; /* Keeps it in the same spot regardless of scrolling */
+    top: 20px; /* Adjust distance from the top */
+    left: 50%; /* Center horizontally relative to the viewport */
+    transform: translateX(-50%); /* Correct centering by offsetting 50% of its width */
+
+    /* Styling for consistency */
+    font-family: Arial, sans-serif; /* Use a standard, widely supported font */
+    font-size: 24px; /* Adjust font size to be readable on all devices */
+    color: #333; /* Neutral color for accessibility */
+    text-align: center; /* Center-align the text */
+    width: 80%; /* Define a width to prevent overflow on smaller screens */
+    max-width: 1200px; /* Limit the maximum width for readability */
+    line-height: 1.5; /* Improve readability with proper line spacing */
+
+    /* Optional styling */
+    padding: 10px; /* Add padding around the text */
+    background-color: #f9f9f9; /* Light background for visibility */
+    border-radius: 10px; /* Smooth edges */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
 
 
         #image-container {
             /* Place it below the heading, centered horizontally */
             position: absolute;
-            top: 100px;
+            top: 20%;
             left: 50%;
             transform: translateX(-50%);
 
@@ -83,12 +102,12 @@
          #result-box {
             position: fixed;
             /* Align with the image container’s top (which is top: 70px). */
-            top: 130px;
+            top: 20%;
             right: 70px;
 
             /* Styling the box */
             width: 25vw;
-            max-width: 400px;
+            max-width: 700px;
             background-color: #536c85 ;
             border-radius: 15px;
             padding: 20px;
@@ -109,7 +128,7 @@
 <body>
     <div id="container">
         <a href="../index.html#projects" class="back-button">Back</a>
-        <h1>Upload one of the following: Lamborghini, Corvette, Pickup Truck, Toyota RAV 4, or Honda Odyssey.</h1>
+        <h1 class="upload-instructions">Upload one of the following: Lamborghini, Corvette, Pickup Truck, Toyota RAV 4, or Honda Odyssey.</h1>
 
         <!-- The main container with the image box and the "Run" button -->
         <div id="image-container">
@@ -158,6 +177,7 @@
             }
         });
 
+
         // On "Run Python Script" click, send the image to the server
         runButton.addEventListener('click', () => {
             const formData = new FormData();
@@ -183,6 +203,11 @@
                 resultBox.innerText = 'An error occurred.';
             });
         });
+
+
+
+
+
     </script>
 </body>
 </html>

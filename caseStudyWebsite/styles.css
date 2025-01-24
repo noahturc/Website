@@ -38,7 +38,7 @@ h1 {
 
 /* Case Study Page Styles */
 .back-button {
-    position: absolute;
+    position: sticky;
     top: 20px;
     left: 20px;
     text-decoration: none;
