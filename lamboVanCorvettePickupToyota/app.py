@@ -1,6 +1,7 @@
 print('hi app')
 from flask import Flask, request, send_from_directory, send_file, jsonify
 import os
+from makePredictions import makePrediction
 print('back in app')
 
 app = Flask(__name__)
@@ -195,7 +196,5 @@ Up to 69.8 cubic feet with the rear seats folded.'''
     return x
 
 if __name__ == '__main__':
-    from makePredictions import makePrediction
-    print('model loaded in')
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
