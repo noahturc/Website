@@ -3,10 +3,10 @@ This repository contains the source code for my personal portfolio website, show
 
 ## Technologies Used
 * **Frontend**: HTML, CSS, JavaScript
-* **Backend**: Python (Flask), and ML model
+* **Backend**: Python (Flask), ML model, AI chatbot
 * **Cloud & Hosting**: AWS EC2, AWS Route 53, AWS ACM, AWS ELB
 * **Version Control**: Git and GitHub
 
 ## Contact
 * **Email**: noahturc@gmail.com
-* **LinkedIn**: [My LinkedIn Account](www.linkedin.com/in/noah-turcas-78305327a)
+* **LinkedIn**: [My LinkedIn Account](https://www.linkedin.com/in/noah-turcas-78305327a/?trk=opento_sprofile_topcard)
