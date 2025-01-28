@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/resume")
 def serve_resume():
     # serve_from_directory needs a directory and a filename
-    return send_from_directory(os.path.dirname(__file__), "NoahTurcasResumeV206.pdf")
+    return send_from_directory(os.path.dirname(__file__), "resume.pdf")
 
 
 @app.route('/health')
