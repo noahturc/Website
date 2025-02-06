@@ -1,1 +1,228 @@
 At the end, at a slide at the beginning stating the goal in the case study.
+
+
+
+
+
+
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Index Page Styles */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.case-button {
+    display: flex; /* inline-block */
+    padding: 20px;
+    margin: 0 15px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    width: 150px;
+    text-align: center;
+    font-size: 18px;
+
+    align-items: center;
+}
+
+.case-button:hover {
+    background-color: #0056b3;
+}
+
+/* Case Study Page Styles */
+.back-button {
+    position: sticky;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #007BFF;
+}
+
+.slideshow-container {
+    position: relative;
+  
+    /* Shrink to viewport width on smaller screens, 
+       but don't exceed a certain maximum on larger screens. */
+    width: 90vw;
+    max-width: 800px; /* Adjust as desired to make the slideshow smaller */
+  
+    /* Keep the height manageable relative to the screen size 
+       so the user can see it without scrolling the entire page. */
+    max-height: 80vh;
+  
+    /* Center it in the middle of the page vertically and horizontally. */
+    margin: 5vh auto;
+  
+    background-color: #acacacb9;
+    border-radius: 15px;
+    padding: 20px;
+  
+    /* Ensure padding is included in total width/height. */
+    box-sizing: border-box;
+  }
+  
+
+
+.slide {
+    display: none;
+}
+
+
+.slide.active {
+    display: block;
+
+}
+
+.description {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.image-box {
+    text-align: center;
+}
+
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    max-height: 570px;
+}
+
+
+/*1374 × 769 px*/
+
+
+
+
+
+
+
+/* Navigation Arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;     /* was absolute */
+    top: 50%;
+    padding: 16px;
+    color: #555;
+    font-weight: bold;
+    font-size: 24px;
+    user-select: none;
+    border-radius: 0 3px 3px 0;
+    background-color:  #acacacb9;
+}
+
+.next {
+    right: -60px;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: -60px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+}
+
+p { text-align: center; }    
+
+.floating-image {
+    width: 445px;
+    height: auto;
+    position: absolute; /* Remove the image from the document flow */
+    top: -80px; /* Move the image up 50 pixels */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for the image's width to center it perfectly */
+}
+
+.page-title {
+    position: relative;
+    top: -20px; /* Moves the title up by 10 pixels */
+}
+
+/*
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Add more slides as needed by copying the div with class "slide" -->
+        <div class="slide">
+            <!-- Replace this paragraph with your own explanation -->
+            <p class="description">
+                <!-- Your paragraph explaining the first step of your thought process goes here --> 
+This is the end product reflecting overall bike usage patterns and identifying potential seasonal trends. <br>
+<a href="case1InteractiveDashboard.html">See interactive usage</a>
+</p>
+            <!-- Replace 'image1.jpg' with the path to your image -->
+            <div class="image-box">
+                <img src="caseStudyPhotosAndData\case1\case1ss9.PNG" alt="Slide Image 1">
+            </div>
+        </div>

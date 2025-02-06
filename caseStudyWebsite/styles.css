@@ -48,18 +48,28 @@ h1 {
 
 .slideshow-container {
     position: relative;
-    max-width: 1100px; /* was 800 */
-    min-width: 1100px;
-    max-height: 670px;
-/*    min-height: 600px;  */
-
-    margin: 80px auto;
+  
+    /* Shrink to viewport width on smaller screens, 
+       but don't exceed a certain maximum on larger screens. */
+    width: 90vw;
+    max-width: 800px; /* Adjust as desired to make the slideshow smaller */
+  
+    /* Keep the height manageable relative to the screen size 
+       so the user can see it without scrolling the entire page. */
+    max-height: 80vh;
+  
+    /* Center it in the middle of the page vertically and horizontally. */
+    margin: 1vh auto;
+  
     background-color: #acacacb9;
     border-radius: 15px;
     padding: 20px;
-    overflow: visible; /* Allow scrolling */
+  
+    /* Ensure padding is included in total width/height. */
+    box-sizing: border-box;
+  }
+  
 
-}
 
 .slide {
     display: none;
@@ -82,6 +92,7 @@ h1 {
 
 .image-box img {
     max-width: 100%;
+    max-height: 100%;
     border-radius: 10px;
     max-height: 570px;
 }
@@ -146,7 +157,3 @@ body, html {
     overflow: hidden;
 }
 */
-.dashboardReal {
-    display: block;
-    transform: translate(14%, 0%)
-}
