@@ -1,10 +1,54 @@
 print('hi app')
-from flask import Flask, request, send_from_directory, send_file, jsonify
+from flask import Flask, request, send_from_directory, send_file, jsonify, render_template, Blueprint
 import os
+import sys
 from makePredictions import makePrediction
+
 
 app = Flask(__name__)
 
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
+
+# Create a blueprint for the cover letter creator.
+cover_letter_bp = Blueprint(
+    'cover_letter', __name__,
+    template_folder='../coverLetterCreator/UI',      # Points to cover letter UI templates
+    static_folder='../coverLetterCreator/UI/static'    # Points to cover letter UI static files
+)
+
+# Define routes on the blueprint.
+@cover_letter_bp.route('/')
+def CLG_index():
+    # This will load ../coverLetterCreator/UI/index.html
+    return render_template('index.html')
+
+@cover_letter_bp.route('/submit', methods=['POST'])
+def submit():
+    print("submit button was clicked")
+    # Retrieve values from the request
+    field1_text = request.form.get('field1')
+    field2_text = request.form.get('field2')
+    field3_text = request.form.get('field3')
+    
+    # Clean the text inputs
+    field1_text = field1_text.replace("\r", "").rstrip("\n")
+    field2_text = field2_text.replace("\r", "").rstrip("\n")
+    field3_text = field3_text.replace("\r", "").rstrip("\n")
+    field1_text = field1_text.replace("\n", " \n ")
+    field2_text = field2_text.replace("\n", " \n ")
+    field3_text = field3_text.replace("\n", " \n ")
+
+    # Create an instance of your GPT helper and get the response
+    from coverLetterCreator.main import gpt
+    instance = gpt(resume=field1_text, jobDescription=field2_text, additionalNotes=field3_text)
+    gptResponse = instance.talkToGPT()
+    return jsonify(result=gptResponse)
+
+
+app.register_blueprint(cover_letter_bp, url_prefix='/cover-letter')
 
 
 
@@ -28,7 +72,7 @@ def log_request_info():
 
 
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
 
 from werkzeug.middleware.proxy_fix import ProxyFix
 app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -210,6 +254,8 @@ Up to 69.8 cubic feet with the rear seats folded.'''
     return x
 
 print('end of app')
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)

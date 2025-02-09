@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dual Paragraph Input Page</title>
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"><!-- Link to CSS file -->
+  <link rel="stylesheet" href="static/styles.css">
+<!--  <link rel="stylesheet" href="{{ url_for('cover_letter.static', filename='styles.css') }}">  -->
+
+</head>
+<a href="../../index.html#projects" class="back-button">Back</a>
+<body>
+  <div class="container">
+    <div class="info-icon" id="infoIcon">&#9432;</div>
+        <!-- Description text that will be toggled -->
+        <div class="description" id="description">
+          Since spending 10 minutes on a cover letter felt too time-consuming, it only made sense to spend 10 hours developing this AI-powered cover letter generator.
+        </div>
+
+
+    <h1>Cover Letter Generator</h1>
+    
+    <div class="field-container" id="field1-container">
+      <div class="field-title">Resume</div>
+      <div class="textarea-wrapper" id="textarea-wrapper-1">
+        <textarea id="textarea1"></textarea>
+        <div class="placeholder-overlay" id="placeholder1">
+          <span class="clickable" id="file-trigger">Upload Resume</span> or paste it in
+        </div>
+      </div>
+    </div>
+    
+    <div class="field-container" id="field2-container">
+      <div class="field-title">Job Description</div>
+      <div class="textarea-wrapper" id="textarea-wrapper-2">
+        <textarea id="textarea2"></textarea>
+        <div class="placeholder-overlay" id="placeholder2">
+          Paste in job description
+        </div>
+      </div>
+    </div>
+    
+    <div class="field-container" id="field3-container">
+      <div class="field-title">Optional - Additional Notes</div>
+      <div class="textarea-wrapper" id="textarea-wrapper-3">
+        <textarea id="textarea3"></textarea>
+        <div class="placeholder-overlay" id="placeholder3">
+          Example: "Make sure to mention my project in the cover letter." or "Make it short."
+        </div>
+      </div>
+    </div>
+
+
+    <button id="submitBtn" disabled>Submit</button>
+    <input type="file" id="hiddenFileInput" style="display: none;" />
+  </div>
+
+
+    <!-- Modal Popup for displaying GPT response -->
+    <div id="popupModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <p id="resultText"></p>
+        <button id="actionButton">Button</button>
+      </div>
+    </div>
+
+  <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+  <!-- Include pdf.js from CDN (adjust version/path as needed) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+  <!-- <script src="{{ url_for('static', filename='script.js') }}"></script><!-- Link to JavaScript file -->
+  <script src="static/script.js"></script>
+<!--  <script src="{{ url_for('cover_letter.static', filename='script.js') }}"></script>  -->
+
+
+</body>
+</html>

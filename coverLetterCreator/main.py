@@ -1,0 +1,56 @@
+print('\n\n')
+import openai
+gmailKey2 = "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"
+openai.api_key = gmailKey2
+from docx import Document
+from docx.shared import Pt
+
+
+class gpt:
+
+    def __init__(self, resume, jobDescription, additionalNotes):
+        self.resume = resume
+        self.jobDescription = jobDescription
+        self.additionalNotes = additionalNotes        
+        
+    def testingForFlask(self):
+        print("testingForFlask method called!")
+        print(f"length of field1: {len(self.resume)}\nlen field2: {len(self.jobDescription)}\nlen field3: {len(self.additionalNotes)}")
+
+
+    def talkToGPT(self):
+        if len(self.additionalNotes) > 3:
+            prompt = f"This is my resume: \"{self.resume}\". This is the job description: \"{self.jobDescription}\". {self.additionalNotes}. Write a cover letter for me."
+        else:
+            prompt = f"This is my resume: \"{self.resume}\". This is the job description: <\"{self.jobDescription}\">. Write a cover letter for me."
+        print(prompt)
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            #model="4o",
+            messages=[{"role":"user","content": prompt}]
+        )
+        response = response['choices'][0]['message']['content']
+        #print(f"GPT SAID: {response}")
+        return response
+    
+    def createDocxFile(self, paragraphs: list):
+        
+        # Create a new document
+        doc = Document()
+        # Add Name (Big and Bold)
+        name = doc.add_paragraph()
+        name_run = name.add_run("Your Name")
+        name_run.bold = True
+        name_run.font.size = Pt(20)
+
+        for paragraph in paragraphs:
+            doc.add_paragraph(paragraph)
+
+        doc.save("Cover_Letter_By_AI.docx")
+        print("Cover letter created successfully!")
+
+
+if __name__== "__main__":
+
+    instance1 = gpt("John Doe", "turquoise", "")
+    instance1.createDocxFile()
