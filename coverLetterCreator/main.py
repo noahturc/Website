@@ -1,7 +1,8 @@
 print('\n\n')
 import openai
-gmailKey2 = "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"
-openai.api_key = gmailKey2
+import os
+api_key=os.getenv("OPEN_API_KEY")
+openai.api_key = api_key
 from docx import Document
 from docx.shared import Pt
 
