@@ -27,25 +27,29 @@ def CLG_index():
 
 @cover_letter_bp.route('/submit', methods=['POST'])
 def submit():
-    print("submit button was clicked")
-    # Retrieve values from the request
-    field1_text = request.form.get('field1')
-    field2_text = request.form.get('field2')
-    field3_text = request.form.get('field3')
-    
-    # Clean the text inputs
-    field1_text = field1_text.replace("\r", "").rstrip("\n")
-    field2_text = field2_text.replace("\r", "").rstrip("\n")
-    field3_text = field3_text.replace("\r", "").rstrip("\n")
-    field1_text = field1_text.replace("\n", " \n ")
-    field2_text = field2_text.replace("\n", " \n ")
-    field3_text = field3_text.replace("\n", " \n ")
+    try:
+        print("submit button was clicked")
+        # Retrieve values from the request
+        field1_text = request.form.get('field1')
+        field2_text = request.form.get('field2')
+        field3_text = request.form.get('field3')
+        
+        # Clean the text inputs
+        field1_text = field1_text.replace("\r", "").rstrip("\n")
+        field2_text = field2_text.replace("\r", "").rstrip("\n")
+        field3_text = field3_text.replace("\r", "").rstrip("\n")
+        field1_text = field1_text.replace("\n", " \n ")
+        field2_text = field2_text.replace("\n", " \n ")
+        field3_text = field3_text.replace("\n", " \n ")
 
-    # Create an instance of your GPT helper and get the response
-    from coverLetterCreator.main import gpt
-    instance = gpt(resume=field1_text, jobDescription=field2_text, additionalNotes=field3_text)
-    gptResponse = instance.talkToGPT()
-    return jsonify(result=gptResponse)
+        # Create an instance of your GPT helper and get the response
+        from coverLetterCreator.main import gpt
+        instance = gpt(resume=field1_text, jobDescription=field2_text, additionalNotes=field3_text)
+        gptResponse = instance.talkToGPT()
+        return jsonify(result=gptResponse)
+    except Exception as e:
+        app.logger.error("Error in /submit endpoint: %s", e)
+        return jsonify(error="Internal server error"), 500
 
 
 app.register_blueprint(cover_letter_bp, url_prefix='/cover-letter')
