@@ -8,9 +8,18 @@
   <link rel="stylesheet" href="static/styles.css">
 <!--  <link rel="stylesheet" href="{{ url_for('cover_letter.static', filename='styles.css') }}">  -->
 
+
+
 </head>
+
+<!-- Loading Screen -->
+<div id="loadingScreen" style="display: none;">
+  <div class="spinner"></div>
+</div>
+
 <a href="../../index.html#projects" class="back-button">Back</a>
 <body>
+
   <div class="container">
     <div class="info-icon" id="infoIcon">&#9432;</div>
         <!-- Description text that will be toggled -->
@@ -57,12 +66,16 @@
   </div>
 
 
+
+
+  
+
     <!-- Modal Popup for displaying GPT response -->
     <div id="popupModal" class="modal">
       <div class="modal-content">
         <span id="closeModal" class="close">&times;</span>
         <p id="resultText"></p>
-        <button id="actionButton">Button</button>
+        <button id="actionButton">Copy To Clipboard</button>
       </div>
     </div>
 

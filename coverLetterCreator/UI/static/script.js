@@ -217,11 +217,6 @@ hiddenFileInput.addEventListener('change', (e) => {
 
 
 
-
-
-
-
-
 // Allow clicking anywhere in the textarea wrapper to focus the textarea
 wrapper1.addEventListener('click', () => {
   textarea1.focus();
@@ -233,8 +228,16 @@ wrapper3.addEventListener('click', () => {
   textarea3.focus();
 });
 
+
+
+
+
 // Submit button action
 submitBtn.addEventListener('click', async () => {
+  // Show the loading screen
+  const loadingScreen = document.getElementById('loadingScreen');
+  loadingScreen.style.display = 'block';
+
   // Store original button text
   const originalText = submitBtn.textContent;
   
@@ -278,6 +281,9 @@ submitBtn.addEventListener('click', async () => {
     const data = await response.json();
     console.log("Response from Flask:", data);
 
+    // Hide the loading screen when result is ready
+    loadingScreen.style.display = 'none';
+
     // Display the returned result in a modal popup
     // Assumes your Flask response returns JSON with a key "result"
     const resultTextElem = document.getElementById('resultText');
@@ -285,13 +291,39 @@ submitBtn.addEventListener('click', async () => {
     
     resultTextElem.textContent = data.result;
     popupModal.style.display = 'block';
-
   } catch (error) {
+    // Hide the loading screen even if there is an error
+    loadingScreen.style.display = 'none';
     console.error("Error:", error);
   }
 });
 
 
+
+
 document.getElementById('closeModal').addEventListener('click', function() {
   document.getElementById('popupModal').style.display = 'none';
+});
+
+
+
+// Copy to clipboard result
+document.getElementById('actionButton').addEventListener('click', function() {
+  // Get the text from the resultText element
+  const textToCopy = document.getElementById('resultText').innerText;
+  
+  // Use the Clipboard API to write the text
+  navigator.clipboard.writeText(textToCopy)
+  .then(() => {
+    // Change button text to "Copied" on success
+    this.innerText = 'Copied';
+    
+    // Optional: Reset the text back to "Button" after 2 seconds
+    setTimeout(() => {
+      this.innerText = 'Copy To Clipboard';
+    }, 2000);
+  })
+  .catch(err => {
+    console.error('Failed to copy text: ', err);
+  });
 });
