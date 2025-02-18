@@ -34,17 +34,16 @@ class gpt:
 #    def createDocxFile(self, paragraphs: list):
        
         # Create a new document
-        doc = Document()
+#        doc = Document()
         # Add Name (Big and Bold)
-        name = doc.add_paragraph()
-        name_run = name.add_run("Your Name")
-        name_run.bold = True
-        name_run.font.size = Pt(20)
-        for paragraph in paragraphs:
-            doc.add_paragraph(paragraph)
-        doc.save("Cover_Letter_By_AI.docx")
-        print("Cover letter created successfully!")
+#        name = doc.add_paragraph()
+#        name_run = name.add_run("Your Name")
+#        name_run.bold = True
+#        name_run.font.size = Pt(20)
+#        for paragraph in paragraphs:
+#            doc.add_paragraph(paragraph)
+#        doc.save("Cover_Letter_By_AI.docx")
+#        print("Cover letter created successfully!")
         
 if __name__== "__main__":
-    instance1 = gpt("John Doe", "turquoise", "")
-    instance1.createDocxFile()
+    pass
