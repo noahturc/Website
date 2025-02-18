@@ -1,7 +1,7 @@
 print('\n\n')
 import openai
-from docx import Document
-from docx.shared import Pt
+#from docx import Document
+#from docx.shared import Pt
 key_file_path = "/home/ec2-user/mykey.txt"
 with open(key_file_path, "r") as f:
     key = f.read().strip()
@@ -31,8 +31,8 @@ class gpt:
         print(f"GPT SAID: {response}")
         return response
     
-    def createDocxFile(self, paragraphs: list):
-        
+#    def createDocxFile(self, paragraphs: list):
+       
         # Create a new document
         doc = Document()
         # Add Name (Big and Bold)
@@ -44,6 +44,7 @@ class gpt:
             doc.add_paragraph(paragraph)
         doc.save("Cover_Letter_By_AI.docx")
         print("Cover letter created successfully!")
+        
 if __name__== "__main__":
     instance1 = gpt("John Doe", "turquoise", "")
     instance1.createDocxFile()
